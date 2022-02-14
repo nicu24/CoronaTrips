@@ -1,0 +1,15 @@
+CREATE TABLE company (
+  company_id serial PRIMARY KEY  -- implicit primary key constraint
+, name    text NOT NULL
+);
+
+CREATE TABLE location (
+  location_id  serial PRIMARY KEY
+, location_name     text NOT NULL
+);
+
+CREATE TABLE company_location (
+  company_id    int REFERENCES company (company_id) ON UPDATE CASCADE ON DELETE CASCADE
+, location_id int REFERENCES location (location_id) ON UPDATE CASCADE
+, CONSTRAINT company_location_pkey PRIMARY KEY (company_id, location_id)  -- explicit pk
+);
