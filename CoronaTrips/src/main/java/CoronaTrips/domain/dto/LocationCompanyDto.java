@@ -6,7 +6,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.relational.core.mapping.Column;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,8 +22,8 @@ public class LocationCompanyDto {
     private List<Company> companies = new ArrayList<>();
 
     public LocationCompanyDto(Location location, List<Company> companies){
-        this.location_id = location.getLocation_id();
-        this.location_name = location.getLocation_name();
+        this.location_id = location.getLocationId();
+        this.location_name = location.getLocationName();
         this.companies.addAll(companies);
     }
 }

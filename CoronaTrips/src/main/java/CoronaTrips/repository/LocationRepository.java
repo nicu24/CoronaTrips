@@ -7,5 +7,6 @@ import reactor.core.publisher.Flux;
 
 @Repository
 public interface LocationRepository extends ReactiveCrudRepository<Location,Long> {
-
+    @Query("Select * from location join company_location on location.location_id = company_location.location_id where company_location.company_id = :companyId")
+    public Flux<Location> findAllLoacationsByCompanyId(Long companyId);
 }

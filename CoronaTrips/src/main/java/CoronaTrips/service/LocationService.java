@@ -1,9 +1,6 @@
 package CoronaTrips.service;
 
 import CoronaTrips.domain.Location;
-import CoronaTrips.domain.dto.LocationCompanyDto;
-import CoronaTrips.repository.CompanyLocationRepository;
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;

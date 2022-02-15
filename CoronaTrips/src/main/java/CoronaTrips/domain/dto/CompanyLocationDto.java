@@ -25,8 +25,8 @@ public class CompanyLocationDto {
     private List<Location> locations;
 
     public CompanyLocationDto(Company company, List<Location> locationList){
-        this.company_id = company.getCompany_id();
-        this.company_name = company.getCompany_name();
+        this.company_id = company.getCompanyId();
+        this.company_name = company.getCompanyName();
         this.locations = new ArrayList<>();
         this.locations.addAll(locationList);
     }

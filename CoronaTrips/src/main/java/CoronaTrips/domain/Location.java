@@ -12,8 +12,8 @@ import org.springframework.data.annotation.Id;
 @NoArgsConstructor
 public class Location {
     @Id
-    private  long location_id;
+    private  long locationId;
 
-    private String location_name;
+    private String locationName;
 
 }

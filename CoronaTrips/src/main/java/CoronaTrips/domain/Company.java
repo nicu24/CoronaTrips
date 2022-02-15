@@ -19,8 +19,8 @@ import java.util.Set;
 @Table("company")
 public class Company {
     @Id
-    private long company_id;
+    private long companyId;
 
-    private String company_name;
+    private String companyName;
 
 }

@@ -65,9 +65,20 @@ public class MainController {
         return nativeConnectionRepository.nativeFindAll();
     }
 
+    @GetMapping("nativeGetAllCompaniesByLocationId/{locationId}")
+    public Flux<Company> nativeFindAllCompanies(@PathVariable(name = "locationId") Long locationId){
+        return nativeConnectionRepository.nativeFindAlCompaniesByLocationId(locationId);
+    }
+
+
+    @GetMapping("nativeGetAllCompaniesWithLocations")
+    public Flux<CompanyLocationDto> nativeFindAllCompaniesWithLocations(){
+        return nativeConnectionRepository.nativeFindAlCompaniesWithLocations();
+    }
+
 
     @GetMapping("t")
-    public void test(){
+    public  void test() {
 
     }
 }
