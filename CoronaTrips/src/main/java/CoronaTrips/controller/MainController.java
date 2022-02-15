@@ -3,6 +3,7 @@ import CoronaTrips.domain.Company;
 import CoronaTrips.domain.Location;
 import CoronaTrips.domain.dto.CompanyLocationDto;
 import CoronaTrips.domain.dto.LocationCompanyDto;
+import CoronaTrips.repository.NativeConnectionRepository;
 import CoronaTrips.service.CompanyLocationService;
 import CoronaTrips.service.CompanyService;
 import CoronaTrips.service.LocationService;
@@ -22,6 +23,7 @@ public class MainController {
     private final CompanyService companyService;
     private final LocationService locationService;
     private final CompanyLocationService companyLocationService;
+    private final NativeConnectionRepository nativeConnectionRepository;
 
     @GetMapping("getAllCompanyByLocationId/{locationId}")
     public Flux<Company> getAllCompanyByLocationId(@PathVariable(name = "locationId") Long locationId){
@@ -58,8 +60,14 @@ public class MainController {
         return companyLocationService.findAllLocationsWithCompanies();
     }
 
+    @GetMapping("nativeGetAllCompanies")
+    public Flux<Company> nativeFindAllCompanies(){
+        return nativeConnectionRepository.nativeFindAll();
+    }
+
+
     @GetMapping("t")
-    public  void t(){
-        companyService.findTest();
+    public void test(){
+
     }
 }
