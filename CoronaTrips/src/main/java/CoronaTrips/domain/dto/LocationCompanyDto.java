@@ -15,15 +15,15 @@ import java.util.List;
 @NoArgsConstructor
 public class LocationCompanyDto {
     @Id
-    private long location_id;
+    private long locationId;
 
-    private String location_name;
+    private String locationName;
 
     private List<Company> companies = new ArrayList<>();
 
     public LocationCompanyDto(Location location, List<Company> companies){
-        this.location_id = location.getLocationId();
-        this.location_name = location.getLocationName();
+        this.locationId = location.getLocationId();
+        this.locationName = location.getLocationName();
         this.companies.addAll(companies);
     }
 }

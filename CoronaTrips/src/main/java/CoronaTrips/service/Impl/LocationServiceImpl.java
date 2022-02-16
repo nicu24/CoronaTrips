@@ -1,6 +1,5 @@
 package CoronaTrips.service.Impl;
 
-import CoronaTrips.domain.CompanyLocation;
 import CoronaTrips.domain.Location;
 import CoronaTrips.repository.LocationRepository;
 import CoronaTrips.service.LocationService;
@@ -31,7 +30,15 @@ public class LocationServiceImpl implements LocationService {
         return locationRepository.findById(id);
     }
 
+    @Override
+    public void addNewLocation(Location location, Long companyId) {
+        System.out.println("Recived: locationId:"+location.getLocationId()+": "+companyId);
+        Mono<Location> locationMono = locationRepository.save(location);
+        locationMono.subscribe(k->{
+            System.out.println("How many i repeated");
+            locationRepository.addForeignKey(k.getLocationId(),companyId).subscribe();
+        });
 
-
+    }
 
 }

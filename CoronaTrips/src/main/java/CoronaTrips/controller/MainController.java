@@ -1,4 +1,5 @@
 package CoronaTrips.controller;
+
 import CoronaTrips.domain.Company;
 import CoronaTrips.domain.Location;
 import CoronaTrips.domain.dto.CompanyLocationDto;
@@ -8,10 +9,9 @@ import CoronaTrips.service.CompanyLocationService;
 import CoronaTrips.service.CompanyService;
 import CoronaTrips.service.LocationService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
@@ -26,59 +26,59 @@ public class MainController {
     private final NativeConnectionRepository nativeConnectionRepository;
 
     @GetMapping("getAllCompanyByLocationId/{locationId}")
-    public Flux<Company> getAllCompanyByLocationId(@PathVariable(name = "locationId") Long locationId){
+    public Flux<Company> getAllCompanyByLocationId(@PathVariable(name = "locationId") Long locationId) {
         return companyService.findAllCompanyByLocationId(locationId);
     }
 
 
     @GetMapping("getAllCompany")
-    public Flux<Company>getAllCompany(){
+    public Flux<Company> getAllCompany() {
         return companyService.findAllCompany();
     }
+
     @GetMapping("getAllCompanyWithLocations")
-    public Flux<CompanyLocationDto>getAllCompanyWithLocations(){
+    public Flux<CompanyLocationDto> getAllCompanyWithLocations() {
         return companyLocationService.findAllCompanyWithLocation();
     }
 
     @GetMapping("getAllLocations")
-    public Flux<Location>getAllLocations(){
+    public Flux<Location> getAllLocations() {
         return locationService.findAllLocations();
     }
 
     @GetMapping("getLocationById/{locationId}")
-    public Mono<Location> getLocationById(@PathVariable( name = "locationId") Long locationId){
+    public Mono<Location> getLocationById(@PathVariable(name = "locationId") Long locationId) {
         return locationService.findLocationById(locationId);
     }
 
     @GetMapping("getAllLocationsByCompanyId/{companyId}")
-    public Flux<Location>getAllLocationsByCompanyId(@PathVariable(name = "companyId") Long companyId){
+    public Flux<Location> getAllLocationsByCompanyId(@PathVariable(name = "companyId") Long companyId) {
         return locationService.findLocationByCompanyId(companyId);
     }
 
-    @GetMapping("getAllLocationsWithCompanies")
-    public Flux<LocationCompanyDto>getAllLocationsByCompanyId(){
-        return companyLocationService.findAllLocationsWithCompanies();
-    }
-
     @GetMapping("nativeGetAllCompanies")
-    public Flux<Company> nativeFindAllCompanies(){
+    public Flux<Company> nativeFindAllCompanies() {
         return nativeConnectionRepository.nativeFindAll();
     }
 
     @GetMapping("nativeGetAllCompaniesByLocationId/{locationId}")
-    public Flux<Company> nativeFindAllCompanies(@PathVariable(name = "locationId") Long locationId){
+    public Flux<Company> nativeFindAllCompanies(@PathVariable(name = "locationId") Long locationId) {
         return nativeConnectionRepository.nativeFindAlCompaniesByLocationId(locationId);
     }
 
 
     @GetMapping("nativeGetAllCompaniesWithLocations")
-    public Flux<CompanyLocationDto> nativeFindAllCompaniesWithLocations(){
+    public Flux<CompanyLocationDto> nativeFindAllCompaniesWithLocations() {
         return nativeConnectionRepository.nativeFindAlCompaniesWithLocations();
     }
 
+    @PostMapping(value = "addLocation/{companyId}", consumes = {"application/json"})
+    public void createUpdateLocation(@PathVariable(name = "companyId") Long companyId, @RequestBody Location location) {
+        locationService.addNewLocation(location,companyId);
+    }
 
     @GetMapping("t")
-    public  void test() {
+    public void test() {
 
     }
 }

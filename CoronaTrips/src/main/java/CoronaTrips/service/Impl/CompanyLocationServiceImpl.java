@@ -17,7 +17,7 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-public class ComapanyLocationServiceImpl implements CompanyLocationService {
+public class CompanyLocationServiceImpl implements CompanyLocationService {
     private final CompanyService companyService;
     private final LocationService locationService;
 

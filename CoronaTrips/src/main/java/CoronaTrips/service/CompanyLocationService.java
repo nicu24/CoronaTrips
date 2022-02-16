@@ -10,6 +10,6 @@ import reactor.core.publisher.Flux;
 
 
 public interface CompanyLocationService {
-    public Flux<LocationCompanyDto> findAllLocationsWithCompanies();
-    public Flux<CompanyLocationDto> findAllCompanyWithLocation();
+    Flux<LocationCompanyDto> findAllLocationsWithCompanies();
+    Flux<CompanyLocationDto> findAllCompanyWithLocation();
 }
