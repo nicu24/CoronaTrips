@@ -12,6 +12,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.reactive.function.client.WebClientResponseException;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
@@ -83,8 +84,14 @@ public class MainController {
     }
 
     @PostMapping(value = "addLocation/{companyId}", consumes = {"application/json"})
-    public void createUpdateLocation(@PathVariable(name = "companyId") Long companyId, @RequestBody Location location) {
-        locationService.addNewLocation(location,companyId);
+    public Mono<ResponseEntity<String>> createUpdateLocation(@PathVariable(name = "companyId") Long companyId, @RequestBody Location location) {
+        return companyService.findCompanyById(companyId)
+                .flatMap(s ->
+                        locationService.addNewLocation(location,companyId)
+                                .then(Mono.just(new ResponseEntity<>(HttpStatus.OK.getReasonPhrase(),HttpStatus.OK))).log()
+                )
+                .defaultIfEmpty(new ResponseEntity<>("Company with id: "+companyId+" Can not be found, error reason:"
+                        +HttpStatus.NOT_FOUND.getReasonPhrase(),HttpStatus.NOT_FOUND));
     }
 
     @GetMapping("t")

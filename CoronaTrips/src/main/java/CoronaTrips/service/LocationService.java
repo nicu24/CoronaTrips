@@ -13,5 +13,5 @@ public interface LocationService {
 
     Mono<Location> findLocationById(Long id);
 
-    void addNewLocation(Location location, Long companyId);
+    Mono<Location> addNewLocation(Location location, Long companyId);
 }

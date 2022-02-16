@@ -31,14 +31,9 @@ public class LocationServiceImpl implements LocationService {
     }
 
     @Override
-    public void addNewLocation(Location location, Long companyId) {
-        System.out.println("Recived: locationId:"+location.getLocationId()+": "+companyId);
-        Mono<Location> locationMono = locationRepository.save(location);
-        locationMono.subscribe(k->{
-            System.out.println("How many i repeated");
-            locationRepository.addForeignKey(k.getLocationId(),companyId).subscribe();
-        });
-
+    public Mono<Location> addNewLocation(Location location, Long companyId) {
+       return locationRepository.save(location).flatMap(location1 ->
+               locationRepository.addForeignKey(location1.getLocationId(),companyId)).log();
     }
 
 }
