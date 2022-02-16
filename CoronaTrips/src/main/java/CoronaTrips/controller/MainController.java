@@ -46,6 +46,16 @@ public class MainController {
         return locationService.findAllLocations();
     }
 
+    @GetMapping("getAllLocationsWithCompanies")
+    public Flux<LocationCompanyDto> getAllLocationsWithCompanies() {
+        return companyLocationService.findAllLocationsWithCompanies();
+    }
+
+    @GetMapping("getAllCompaniesWithLocations")
+    public Flux<LocationCompanyDto> getAllCompaniesWithLocations() {
+        return companyLocationService.findAllLocationsWithCompanies();
+    }
+
     @GetMapping("getLocationById/{locationId}")
     public Mono<Location> getLocationById(@PathVariable(name = "locationId") Long locationId) {
         return locationService.findLocationById(locationId);
