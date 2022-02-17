@@ -1,22 +1,20 @@
 package CoronaTrips.domain;
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.relational.core.mapping.Table;
-
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
-@Table("company")
-public class Company {
+public class Price {
     @Id
-    private long companyId;
+    private int priceId;
 
-    private String companyName;
+    private int companyId;
 
+    private int locationId;
+
+    private float cost;
 }

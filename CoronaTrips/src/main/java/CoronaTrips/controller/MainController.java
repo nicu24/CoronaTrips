@@ -4,6 +4,7 @@ import CoronaTrips.domain.Company;
 import CoronaTrips.domain.Location;
 import CoronaTrips.domain.dto.CompanyLocationDto;
 import CoronaTrips.domain.dto.LocationCompanyDto;
+import CoronaTrips.domain.dto.PriceDto;
 import CoronaTrips.repository.NativeConnectionRepository;
 import CoronaTrips.service.CompanyLocationService;
 import CoronaTrips.service.CompanyService;
@@ -51,11 +52,6 @@ public class MainController {
         return companyLocationService.findAllLocationsWithCompanies();
     }
 
-//    @GetMapping("getAllCompaniesWithLocations")
-//    public Flux<LocationCompanyDto> getAllCompaniesWithLocations() {
-//        return companyLocationService.findAllLocationsWithCompanies();
-//    }
-
     @GetMapping("getLocationById/{locationId}")
     public Mono<Location> getLocationById(@PathVariable(name = "locationId") Long locationId) {
         return locationService.findLocationById(locationId);
@@ -93,8 +89,8 @@ public class MainController {
                         +HttpStatus.NOT_FOUND.getReasonPhrase(),HttpStatus.NOT_FOUND));
     }
 
-    @GetMapping("t")
-    public void test() {
-
+    @GetMapping("getAllCompanyLocationsWithPrice")
+    public Flux<PriceDto> getAllCompanyLocationsWithPrice() {
+    return companyLocationService.findAllCompanyLocationsWithPrice();
     }
 }
