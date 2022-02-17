@@ -3,7 +3,7 @@
     <div class="logo">Test App</div>
     <ul nz-menu nzTheme="dark" nzMode="inline">
       <ul>
-        <li nz-menu-item *ngFor="let item of companyLocations; index as i;" (click)="selected(i)">
+        <li nz-menu-item *ngFor="let item of companyLocations; index as i;" (click)="selected(item.companyId)">
           {{item.companyName}}
         </li>
       </ul>
@@ -13,9 +13,13 @@
     <nz-header></nz-header>
     <nz-content>
       <div class="inner-content">
+        <div>
+          <button nz-button  [nzType]="'primary'" (click)="showModal()" *ngIf="selectedId!=undefined" style="width: 100%; margin-bottom: 30px; "><span>+</span></button>
+        </div>
+
         <div *ngIf="selectedId!=undefined" style="display: flex;flex-wrap: wrap; justify-content: space-around; ">
-          <div *ngFor="let item of companyLocations[selectedId].locations" class="box">
-           <p style="text-shadow: 2px 4px 3px rgba(0,0,0,0.3); text-shadow: horizontal-offset vertical-offset blur color;">{{item.locationName}}</p>
+          <div *ngFor="let item of companyLocations[selectedId-1].locations;" class="box">
+           <p style="text-shadow: 2px 4px 3px rgba(0,0,0,0.3);">{{item.locationName}}</p>
           </div>
         </div>
       </div>
@@ -23,3 +27,18 @@
     <nz-footer>Test App CoronaTrip</nz-footer>
   </nz-layout>
 </nz-layout>
+
+<nz-modal [(nzVisible)]="isVisible" nzTitle="Add New Location" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()">
+  <ng-container *nzModalContent>
+    <form nz-form>
+      <nz-form-item>
+        <nz-form-label [nzSpan]="8">Location Name</nz-form-label>
+        <nz-form-control [nzSpan]="4">
+          <input nz-input class="form-control"  [(ngModel)]="this.location.locationName" name="first" style="width: 100px"/>
+        </nz-form-control>
+      </nz-form-item>
+    </form>
+  </ng-container>
+</nz-modal>
+
+

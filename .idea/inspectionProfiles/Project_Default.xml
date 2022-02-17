@@ -4,11 +4,14 @@
     <inspection_tool class="HtmlUnknownAttribute" enabled="true" level="WARNING" enabled_by_default="true">
       <option name="myValues">
         <value>
-          <list size="4">
+          <list size="7">
             <item index="0" class="java.lang.String" itemvalue="nz-menu" />
             <item index="1" class="java.lang.String" itemvalue="nz-menu-item" />
             <item index="2" class="java.lang.String" itemvalue="nzmode" />
             <item index="3" class="java.lang.String" itemvalue="nzselected" />
+            <item index="4" class="java.lang.String" itemvalue="nz-button" />
+            <item index="5" class="java.lang.String" itemvalue="nzshape" />
+            <item index="6" class="java.lang.String" itemvalue="nz-input" />
           </list>
         </value>
       </option>
@@ -17,7 +20,7 @@
     <inspection_tool class="HtmlUnknownTag" enabled="true" level="WARNING" enabled_by_default="true">
       <option name="myValues">
         <value>
-          <list size="10">
+          <list size="13">
             <item index="0" class="java.lang.String" itemvalue="nobr" />
             <item index="1" class="java.lang.String" itemvalue="noembed" />
             <item index="2" class="java.lang.String" itemvalue="comment" />
@@ -28,6 +31,9 @@
             <item index="7" class="java.lang.String" itemvalue="nz-header" />
             <item index="8" class="java.lang.String" itemvalue="nz-sider" />
             <item index="9" class="java.lang.String" itemvalue="ul" />
+            <item index="10" class="java.lang.String" itemvalue="nz-form-item" />
+            <item index="11" class="java.lang.String" itemvalue="nz-form-label" />
+            <item index="12" class="java.lang.String" itemvalue="nz-form-control" />
           </list>
         </value>
       </option>
