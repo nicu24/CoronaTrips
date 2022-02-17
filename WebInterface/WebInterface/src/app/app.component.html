@@ -1,20 +1,25 @@
-<body>
 <nz-layout>
-  <nz-header>
-    <div class="logo"></div>
-  </nz-header>
-  <nz-layout>
-    <nz-sider nzWidth="200px" nzTheme="light">
-      <ul nz-menu nzMode="inline" class="sider-menu">
-          <ul>
-            <li nz-menu-item nzSelected >Airfox</li>
-            <li nz-menu-item>Pandatur</li>
-          </ul>
+  <nz-sider nzCollapsible nzWidth="200px">
+    <div class="logo">Test App</div>
+    <ul nz-menu nzTheme="dark" nzMode="inline">
+      <ul>
+        <li nz-menu-item *ngFor="let item of companyLocations; index as i;" (click)="selected(i)">
+          {{item.companyName}}
+        </li>
       </ul>
-    </nz-sider>
-    <nz-layout class="inner-layout">
-      <nz-content>Content</nz-content>
-    </nz-layout>
+    </ul>
+  </nz-sider>
+  <nz-layout>
+    <nz-header></nz-header>
+    <nz-content>
+      <div class="inner-content">
+        <div *ngIf="selectedId!=undefined" style="display: flex;flex-wrap: wrap; justify-content: space-around; ">
+          <div *ngFor="let item of companyLocations[selectedId].locations" class="box">
+           <p style="text-shadow: 2px 4px 3px rgba(0,0,0,0.3); text-shadow: horizontal-offset vertical-offset blur color;">{{item.locationName}}</p>
+          </div>
+        </div>
+      </div>
+    </nz-content>
+    <nz-footer>Test App CoronaTrip</nz-footer>
   </nz-layout>
 </nz-layout>
-</body>

@@ -9,7 +9,7 @@ import en from '@angular/common/locales/en';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NzLayoutModule} from 'ng-zorro-antd/layout';
+import {NzLayoutModule, NzSiderComponent} from 'ng-zorro-antd/layout';
 import { NzBreadCrumbModule } from 'ng-zorro-antd/breadcrumb';
 import { NzMenuModule } from 'ng-zorro-antd/menu';
 registerLocaleData(en);
@@ -25,7 +25,8 @@ registerLocaleData(en);
     BrowserAnimationsModule,
     NzLayoutModule,
     NzBreadCrumbModule,
-    NzMenuModule
+    NzMenuModule,
+
 
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }],

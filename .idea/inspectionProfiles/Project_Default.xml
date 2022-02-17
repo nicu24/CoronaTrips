@@ -4,16 +4,11 @@
     <inspection_tool class="HtmlUnknownAttribute" enabled="true" level="WARNING" enabled_by_default="true">
       <option name="myValues">
         <value>
-          <list size="9">
+          <list size="4">
             <item index="0" class="java.lang.String" itemvalue="nz-menu" />
             <item index="1" class="java.lang.String" itemvalue="nz-menu-item" />
-            <item index="2" class="java.lang.String" itemvalue="nz-submenu" />
-            <item index="3" class="java.lang.String" itemvalue="nz-icon" />
-            <item index="4" class="java.lang.String" itemvalue="nztype" />
-            <item index="5" class="java.lang.String" itemvalue="nztitle" />
-            <item index="6" class="java.lang.String" itemvalue="nzicon" />
-            <item index="7" class="java.lang.String" itemvalue="nztheme" />
-            <item index="8" class="java.lang.String" itemvalue="nzmode" />
+            <item index="2" class="java.lang.String" itemvalue="nzmode" />
+            <item index="3" class="java.lang.String" itemvalue="nzselected" />
           </list>
         </value>
       </option>
@@ -22,7 +17,7 @@
     <inspection_tool class="HtmlUnknownTag" enabled="true" level="WARNING" enabled_by_default="true">
       <option name="myValues">
         <value>
-          <list size="13">
+          <list size="10">
             <item index="0" class="java.lang.String" itemvalue="nobr" />
             <item index="1" class="java.lang.String" itemvalue="noembed" />
             <item index="2" class="java.lang.String" itemvalue="comment" />
@@ -30,12 +25,9 @@
             <item index="4" class="java.lang.String" itemvalue="embed" />
             <item index="5" class="java.lang.String" itemvalue="script" />
             <item index="6" class="java.lang.String" itemvalue="nz-layout" />
-            <item index="7" class="java.lang.String" itemvalue="nz-sider" />
-            <item index="8" class="java.lang.String" itemvalue="nz-breadcrumb-item" />
-            <item index="9" class="java.lang.String" itemvalue="nz-content" />
-            <item index="10" class="java.lang.String" itemvalue="nz-footer" />
-            <item index="11" class="java.lang.String" itemvalue="nz-breadcrumb" />
-            <item index="12" class="java.lang.String" itemvalue="nz-header" />
+            <item index="7" class="java.lang.String" itemvalue="nz-header" />
+            <item index="8" class="java.lang.String" itemvalue="nz-sider" />
+            <item index="9" class="java.lang.String" itemvalue="ul" />
           </list>
         </value>
       </option>

@@ -17,9 +17,7 @@ public class CompanyLocationDto {
     @Id
     private long companyId;
 
-
     private String companyName;
-
 
     private List<Location> locations;
 

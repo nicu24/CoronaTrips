@@ -12,11 +12,10 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.reactive.function.client.WebClientResponseException;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
-
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/")
@@ -52,10 +51,10 @@ public class MainController {
         return companyLocationService.findAllLocationsWithCompanies();
     }
 
-    @GetMapping("getAllCompaniesWithLocations")
-    public Flux<LocationCompanyDto> getAllCompaniesWithLocations() {
-        return companyLocationService.findAllLocationsWithCompanies();
-    }
+//    @GetMapping("getAllCompaniesWithLocations")
+//    public Flux<LocationCompanyDto> getAllCompaniesWithLocations() {
+//        return companyLocationService.findAllLocationsWithCompanies();
+//    }
 
     @GetMapping("getLocationById/{locationId}")
     public Mono<Location> getLocationById(@PathVariable(name = "locationId") Long locationId) {
